@@ -8,6 +8,7 @@ import '@nomiclabs/hardhat-etherscan';
 import '@typechain/hardhat';
 import 'hardhat-deploy';
 import 'hardhat-gas-reporter';
+import '@openzeppelin/hardhat-upgrades';
 import 'solidity-coverage';
 import 'solidity-docgen';
 
@@ -71,14 +72,6 @@ const config: HardhatUserConfig = {
   },
   namedAccounts: {
     deployer: 0,
-  },
-  docgen: {
-    outputDir: 'docs/generated/',
-    theme: 'markdown',
-    pages: 'files',
-    templates: 'docs/templates',
-    collapseNewlines: true,
-    exclude: ['test'],
   },
 };
 

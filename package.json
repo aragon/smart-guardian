@@ -21,8 +21,12 @@
   "homepage": "https://github.com/aragon/smart-guardian#readme",
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^1.0.5",
-    "@nomiclabs/hardhat-ethers": "^2.0.2",
-    "@nomiclabs/hardhat-etherscan": "^3.0.3",
+    "@nomiclabs/hardhat-ethers": "^2.2.1",
+    "@nomiclabs/hardhat-etherscan": "^3.1.4",
+    "@openzeppelin/hardhat-upgrades": "^1.21.0",
+    "@openzeppelin/contracts": "4.8.2",
+    "@openzeppelin/contracts-upgradeable": "4.8.2",
+    "@aragon/osx": "1.0.1",
     "@rollup/plugin-json": "^4.1.0",
     "@typechain/ethers-v5": "^7.2.0",
     "@typechain/hardhat": "^2.3.1",
@@ -42,25 +46,20 @@
     "eslint-plugin-promise": "^5.1.1",
     "ethereumjs-util": "^7.1.4",
     "ethers": "^5.5.1",
-    "hardhat": "^2.12.2",
+    "hardhat": "^2.12.7",
     "hardhat-deploy": "^0.9.26",
     "hardhat-gas-reporter": "^1.0.4",
     "ipfs-http-client": "51.0.0",
     "prettier": "^2.4.1",
-    "prettier-plugin-solidity": "^1.0.0-beta.13",
+    "prettier-plugin-solidity": "^1.1.1",
     "rollup": "^2.70.1",
     "rollup-plugin-dts": "^4.2.0",
     "solhint": "^3.3.6",
     "solidity-coverage": "^0.8.2",
-    "solidity-docgen": "^0.6.0-beta.19",
+    "solidity-docgen": "^0.6.0-beta.35",
     "tmp-promise": "^3.0.3",
+    "typescript": "^5.0.2",
     "ts-node": "^8.1.0",
-    "typechain": "^5.2.0",
-    "typescript": "^4.4.4"
-  },
-  "dependencies": {
-    "@aragon/osx": "1.0.1",
-    "@openzeppelin/contracts": "^4.8.2",
-    "@openzeppelin/contracts-upgradeable": "^4.8.2"
+    "typechain": "^5.2.0"
   }
 }
