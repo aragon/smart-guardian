@@ -9,8 +9,7 @@ import {IPermissionCondition} from "@aragon/osx/core/permission/IPermissionCondi
 import {IDAO, DAO} from "@aragon/osx/core/dao/DAO.sol";
 
 contract SmartGuardian is IPermissionCondition, Ownable, Pausable {
-    bytes32 private constant EXECUTE_PERMISSION_ID =
-        keccak256("EXECUTE_PERMISSION");
+    bytes32 private constant EXECUTE_PERMISSION_ID = keccak256("EXECUTE_PERMISSION");
 
     mapping(address => bool) public allowedExecutor;
     mapping(bytes32 => bool) public blockedProposal;
@@ -44,21 +43,15 @@ contract SmartGuardian is IPermissionCondition, Ownable, Pausable {
         bytes32 _permissionId,
         bytes calldata _data
     ) external view whenNotPaused returns (bool allowed) {
-        (_where);
+        (_who, _where);
 
         if (_permissionId != EXECUTE_PERMISSION_ID) {
-            revert WrongPermissionId({
-                expected: EXECUTE_PERMISSION_ID,
-                actual: _permissionId
-            });
+            revert WrongPermissionId({expected: EXECUTE_PERMISSION_ID, actual: _permissionId});
         }
 
         // Decode the `_data` that was send to the `dao.excute()` function.
-        (bytes32 _proposalId, , ) = abi.decode(
-            _data,
-            (bytes32, IDAO.Action[], uint256)
-        );
+        (bytes32 _proposalId, , ) = abi.decode(_data[4:], (bytes32, IDAO.Action[], uint256));
 
-        return allowedExecutor[_who] && !blockedProposal[_proposalId];
+        return allowedExecutor[tx.origin] && !blockedProposal[_proposalId];
     }
 }
