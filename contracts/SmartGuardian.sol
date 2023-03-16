@@ -36,6 +36,14 @@ contract SmartGuardian is IPermissionCondition, Ownable, Pausable {
         blockedProposal[_proposalId] = false;
     }
 
+    function pause() external onlyOwner {
+        _pause();
+    }
+
+    function unpause() external onlyOwner {
+        _unpause();
+    }
+
     /// @inheritdoc IPermissionCondition
     function isGranted(
         address _where,
